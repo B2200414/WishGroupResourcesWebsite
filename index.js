@@ -222,4 +222,85 @@ form.addEventListener("submit", function (e) {
     });
 });
 
+
+// ========== Event Tab Functionality ==========
+const tabs = document.querySelectorAll(".event-tab");
+const items = document.querySelectorAll(".event-item");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalDesc = document.getElementById("modalDesc");
+const modalClose = document.getElementById("modalClose");
+const modalPrev = document.getElementById("modalPrev");
+const modalNext = document.getElementById("modalNext");
+
+let filteredItems = [];
+let currentIndex = 0;
+
+// Filtering
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((btn) => btn.classList.remove("active"));
+    tab.classList.add("active");
+
+    const category = tab.getAttribute("data-category");
+
+    filteredItems = [...items].filter((item) =>
+      item.getAttribute("data-category") === category
+    );
+
+    items.forEach((item) => {
+      item.style.display =
+        item.getAttribute("data-category") === category ? "block" : "none";
+    });
+
+    // Reset index
+    currentIndex = 0;
+  });
+});
+
+// Show only first category on load
+window.addEventListener("DOMContentLoaded", () => {
+  tabs[0].click();
+});
+
+// Modal logic
+function openModal(index) {
+  const item = filteredItems[index];
+  modalImg.src = item.querySelector("img").src;
+  modalDesc.textContent = item.getAttribute("data-description");
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  currentIndex = index;
+}
+
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function navigateModal(dir) {
+  currentIndex += dir;
+  if (currentIndex < 0) currentIndex = filteredItems.length - 1;
+  if (currentIndex >= filteredItems.length) currentIndex = 0;
+  openModal(currentIndex);
+}
+
+// Event listeners
+items.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    filteredItems = [...items].filter(
+      (i) => i.style.display !== "none"
+    );
+    currentIndex = filteredItems.indexOf(item);
+    openModal(currentIndex);
+  });
+});
+
+modalClose.addEventListener("click", closeModal);
+modalPrev.addEventListener("click", () => navigateModal(-1));
+modalNext.addEventListener("click", () => navigateModal(1));
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
 });

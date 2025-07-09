@@ -917,3 +917,138 @@ html {
     max-height: 300px;
   }
 }
+
+/* ========== EVENT SECTION ========== */
+.event-section.container {
+  padding: 60px 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Heading */
+.event-heading {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+/* Tabs */
+.event-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.event-tab {
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  background: white;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.event-tab.active,
+.event-tab:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* Gallery */
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.event-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.event-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.modal-img {
+  max-width: 90%;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.modal-desc {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* Modal controls */
+.modal-close,
+.modal-prev,
+.modal-next {
+  position: fixed;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  transition: transform 0.3s;
+  z-index: 10000;
+}
+
+.modal-close {
+  top: 20px;
+  right: 30px;
+}
+
+.modal-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-close:hover,
+.modal-prev:hover,
+.modal-next:hover {
+  transform: scale(1.2);
+}
