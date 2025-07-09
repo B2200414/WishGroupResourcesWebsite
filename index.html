@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wish Group</title>
+    <link rel="icon" type="image/png" href="images/logo.png" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Google Fonts (optional: Roboto or customize later) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Optional: Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- External JS -->
+    <script defer src="index.js"></script>
+  </head>
+
+  <body id="top">
+    <header class="header">
+      <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="#top">
+            <img src="images/logo.png" alt="Wish Group Logo" />
+          </a>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="#about" class="nav-link" data-i18n="nav_about"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a href="#services" class="nav-link" data-i18n="nav_services"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#join" class="nav-link" data-i18n="nav_join">Join Us</a>
+            </li>
+            <li>
+              <a href="#events" class="nav-link" data-i18n="nav_events"
+                >Events</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link" data-i18n="nav_contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Language Dropdown -->
+        <div class="lang-dropdown">
+          <button class="lang-toggle">
+            <div class="lang-box">
+              <img src="images/language.png" alt="Language Icon" />
+              <span id="current-lang-text">EN</span>
+              <i class="fa fa-caret-down"></i>
+            </div>
+          </button>
+          <ul class="lang-menu">
+            <li data-lang="en">EN</li>
+            <li data-lang="zh">ZH</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+      ↑
+    </a>
+
+    <section id="hero" class="hero-banner">
+      <div class="hero-overlay">
+        <div class="hero-box">
+          <h1>Your One-Stop Financial Solution Partner</h1>
+          <p>
+            From insurance to wealth planning, we empower your financial future
+            with expert solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="#join" class="btn primary">Join Us</a>
+            <a href="#services" class="btn secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container">
+        <!-- Intro -->
+        <div class="about-intro">
+          <h2>About Us</h2>
+          <p>
+            Established in 2013, <strong>Wish Group Resources</strong> brings
+            over 20 years of financial management experience. We have provided
+            one‑stop financial solutions — covering banking, risk management,
+            legal and tax advisory, investment, and estate planning — to
+            thousands of clients.
+          </p>
+        </div>
+
+        <!-- Mission, Vision & Core Values -->
+        <div class="about-cards">
+          <!-- Mission -->
+          <div class="card">
+            <h3>Our Mission</h3>
+            <p>
+              To provide peace of mind through comprehensive, personalized
+              financial and insurance planning, build long-term trust with
+              clients, and uphold the highest levels of professionalism and
+              ethical standards.
+            </p>
+          </div>
+          <!-- Vision -->
+          <div class="card">
+            <h3>Our Vision</h3>
+            <p>
+              To be a leading young financial services agency in Malaysia — the
+              preferred partner for both clients and business leaders. We train
+              leaders, not staff.
+            </p>
+          </div>
+          <!-- Values -->
+          <div class="card">
+            <h3>Our Core Values</h3>
+            <ul>
+              <li>Gratefulness</li>
+              <li>Team Spirit</li>
+              <li>Excellence</li>
+              <li>Foresight</li>
+              <li>Dedication</li>
+            </ul>
+          </div>
+        </div>
+
+        <section id="stories" class="story-section">
+          <div class="container">
+            <h2 class="section-title">Client Success Stories</h2>
+            <div class="story-cards">
+              <!-- Story 1 -->
+              <div class="story-card" data-story="1">
+                <img src="images/event.jpg" alt="Story 1 Thumbnail" />
+                <h4>Helping Mr. Lee Retire Early</h4>
+                <button class="know-more-btn">Know More</button>
+              </div>
+              <!-- Story 2 -->
+              <div class="story-card" data-story="2">
+                <img src="images/event.jpg" alt="Story 2 Thumbnail" />
+                <h4>Rescuing a Family’s Investment Plan</h4>
+                <button class="know-more-btn">Know More</button>
+              </div>
+              <!-- Story 3 -->
+              <div class="story-card" data-story="3">
+                <img src="images/event.jpg" alt="Story 3 Thumbnail" />
+                <h4>Building a Safe Future for Kids</h4>
+                <button class="know-more-btn">Know More</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expanded Story Viewer -->
+          <div class="story-popup" id="storyPopup">
+            <div class="story-popup-content">
+              <button class="close-btn" id="closeStory">&times;</button>
+              <div class="video-area">
+                <video
+                  id="storyVideo"
+                  controls
+                  poster="images/story1-thumb.jpg"
+                >
+                  <source src="" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="video-speed">
+                  <label for="speed">Speed:</label>
+                  <select id="speed">
+                    <option value="1">1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                  </select>
+                </div>
+              </div>
+              <div class="story-text" id="storyText">
+                <!-- Dynamic content will load here -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- services section -->
+    <section id="services" class="services-section">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/banking.jpeg')"
+          >
+            <h3>Banking & Finance</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Loan consultation</li>
+              <li>Mortgage planning</li>
+              <li>Debt restructuring</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/risk.jpeg')"
+          >
+            <h3>Risk Management</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Insurance analysis</li>
+              <li>Protection planning</li>
+              <li>Critical illness coverage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/legal.png')"
+          >
+            <h3>Legal Advisory</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Legal documentation</li>
+              <li>Contract review</li>
+              <li>Will writing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/tax.jpg')"
+          >
+            <h3>Tax Advisory</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Income tax planning</li>
+              <li>Business tax consultation</li>
+              <li>Tax saving strategies</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/investment.jpg')"
+          >
+            <h3>Investment</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Portfolio design</li>
+              <li>Unit trust investment</li>
+              <li>Retirement planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div
+            class="card-image"
+            style="background-image: url('images/estate.jpeg')"
+          >
+            <h3>Estate Planning</h3>
+            <button class="toggle-btn">&#9660;</button>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li>Will & trust setup</li>
+              <li>Asset distribution</li>
+              <li>Inheritance protection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="join-us-section">
+      <div class="container">
+        <h2 class="section-title">Join Us</h2>
+        <p class="intro-text">
+          <strong>Flexible work hours. Income in your hands.</strong><br />
+          Join our team as a “Wealth Artisan” — learn the essential paths of
+          tax, finance, risk, wealth and estate planning.
+        </p>
+
+        <h3 class="section-subtitle">How We Help</h3>
+        <div class="story-cards">
+          <div class="story-card" data-story="4">
+            <img src="images/investment.jpg" alt="Help Story 1" />
+            <h4>Guiding Young Advisors</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+          <div class="story-card" data-story="5">
+            <img src="images/tax.jpg" alt="Help Story 2" />
+            <h4>Financial Freedom for Moms</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+          <div class="story-card" data-story="6">
+            <img src="images/legal.png" alt="Help Story 3" />
+            <h4>Second Career for Retirees</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+        </div>
+
+        <section id="join" class="join-us-section">
+          <div class="container">
+            <h2 class="join-title">Join Us Now</h2>
+            <p class="join-description">
+              We’re looking for passionate individuals like you!
+            </p>
+
+            <div class="join-layout">
+              <!-- Left: Image -->
+              <div class="join-image">
+                <img src="images/shake.jpg" alt="Join Us" />
+              </div>
+
+              <!-- Right: Form -->
+              <div class="join-form-area">
+                <h3 class="section-subtitle">Send Us Your CV</h3>
+                <form
+                  class="cv-form"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Any message to our company"
+                  ></textarea>
+
+                  <!-- Styled file input -->
+                  <div class="file-upload-wrapper">
+                    <label class="file-label">Attach your CV here</label>
+                    <div class="file-input-group">
+                      <input
+                        type="file"
+                        name="cv"
+                        id="cv"
+                        accept=".pdf,.doc,.docx"
+                        required
+                        hidden
+                      />
+                      <button
+                        type="button"
+                        id="chooseFileBtn"
+                        class="choose-file-btn"
+                      >
+                        Choose a File
+                      </button>
+                      <span id="fileName" class="file-name"
+                        >No file chosen</span
+                      >
+                      <button
+                        type="button"
+                        id="removeFileBtn"
+                        class="remove-file-btn"
+                        title="Remove File"
+                      >
+                        &times;
+                      </button>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="submit-btn">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>

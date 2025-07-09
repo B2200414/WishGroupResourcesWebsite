@@ -1,0 +1,101 @@
+    <section id="join" class="join-us-section">
+      <div class="container">
+        <h2 class="section-title">Join Us</h2>
+        <p class="intro-text">
+          <strong>Flexible work hours. Income in your hands.</strong><br />
+          Join our team as a “Wealth Artisan” — learn the essential paths of
+          tax, finance, risk, wealth and estate planning.
+        </p>
+
+        <h3 class="section-subtitle">How We Help</h3>
+        <div class="story-cards">
+          <div class="story-card" data-story="4">
+            <img src="images/investment.jpg" alt="Help Story 1" />
+            <h4>Guiding Young Advisors</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+          <div class="story-card" data-story="5">
+            <img src="images/tax.jpg" alt="Help Story 2" />
+            <h4>Financial Freedom for Moms</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+          <div class="story-card" data-story="6">
+            <img src="images/legal.png" alt="Help Story 3" />
+            <h4>Second Career for Retirees</h4>
+            <button class="know-more-btn">Know More</button>
+          </div>
+        </div>
+
+        <section id="join" class="join-us-section">
+          <div class="container">
+            <h2 class="join-title">Join Us Now</h2>
+            <p class="join-description">
+              We’re looking for passionate individuals like you!
+            </p>
+
+            <div class="join-layout">
+              <!-- Left: Image -->
+              <div class="join-image">
+                <img src="images/shake.jpg" alt="Join Us" />
+              </div>
+
+              <!-- Right: Form -->
+              <div class="join-form-area">
+                <h3 class="section-subtitle">Send Us Your CV</h3>
+                <form
+                  class="cv-form"
+                  method="POST"
+                  enctype="multipart/form-data"
+                  action="submit_cv.php"
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Any message to our company"
+                  ></textarea>
+
+                  <!-- Styled file input -->
+                  <div class="file-upload-wrapper">
+                    <label class="file-upload-title">Attach your CV here</label>
+                    <div class="file-upload-group">
+                      <label for="cvUpload" class="file-upload-label"
+                        >Choose a file</label
+                      >
+                      <span class="file-name" id="fileName"
+                        >No file chosen</span
+                      >
+                      <input
+                        type="file"
+                        name="cv"
+                        id="cvUpload"
+                        accept=".pdf,.doc,.docx"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="submit-btn">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>

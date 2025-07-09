@@ -1,0 +1,68 @@
+{  
+  "title_home": "Wish Group Resources",
+
+
+  "nav_home": "首页",
+  "nav_about": "关于我们",
+  "nav_hall": "荣誉殿堂",
+  "nav_join": "加入我们",
+  "nav_hq": "我们的总部",
+  "nav_events": "活动",
+  "nav_contact": "联系我们",
+
+  
+  "hero_title": "欢迎来到Wish Group Resources网站",
+  "hero_subtitle": "提供构建您成功的解决方案。",
+  "home_about_title": "关于我们",
+  "home_about_text": "在Wish Group Resources，我们专注于提供创新、量身定制的业务解决方案，满足您的独特需求。我们以质量、诚信和客户满意为基础，致力于帮助合作伙伴实现新的成功高度。从战略咨询到实践执行，我们经验丰富的团队将全程为您提供支持。",
+  "home_services_title": "我们提供一站式金融解决方案",
+  "service_banking": "银行与金融",
+  "service_risk":"风险管理",
+  "service_legal":"法律咨询",
+  "service_tax": "税务咨询",
+  "service_investment": "投资",
+  "service_estate": "遗产规划",
+
+
+
+  "who_we_are": "我们是谁",
+  "company_description": "Wish Group Resources 致力于通过协作、创新和诚信实现卓越。我们通过建立信任和相互尊重，帮助个人和企业共同成长。",
+
+  "our_vision": "我们的愿景",
+  "vision_text": "成为马来西亚乃至全球个人和职业转型的领先平台。",
+
+  "our_mission": "我们的使命",
+  "mission_text": "通过指导、创新和有意义的跨行业合作关系赋能人生。",
+
+  "our_culture": "我们的文化",
+  "culture_text": "我们相信团队合作、相互尊重的力量，以及我们的核心价值：",
+  "culture_quote": "孝顺为先 — Filial piety comes first.",
+
+  "team_intro": "认识我们的团队",
+  "position_ceo": "创始人兼首席执行官",
+  "position_marketing": "市场总监",
+
+  "events_heading": "我们的活动",
+  "events_team": "团队建设",
+  "events_training": "培训",
+  "events_celebration": "庆典",
+
+  "name1": "陈伟明",
+  "award_leadership": "2024年度最佳领导奖",
+  "name2": "李华",
+  "award_performer": "2024年度杰出表现奖",
+
+  "join_promo_title": "为什么加入 Wish Group Resources？",
+  "testimonials_title": "我们的团队怎么说",
+  "comment1": "加入 Wish Group Resources 对我来说是一次变革性的经历。支持和成长机会无与伦比。",
+  "comment2": "这里的文化太棒了！我每天都感到被重视和激励。",
+  "comment3": "创新和协作的最佳实践。",
+
+  "hq_title": "我们的总部",
+  "hq_gallery":"办公室画廊",
+  
+  "footer_address": "32A-1, Jalan Nautika B U20/B,<br />Pusat Komersial TSB, 47000 Shah Alam,<br />雪兰莪",
+  "footer_phone": "+60 12-345 6789",
+  "footer_email": "example@gmail.com",
+  "footer_rights": "© 2025 Wish Group Resources. 版权所有。"
+}
