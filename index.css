@@ -175,49 +175,148 @@ html {
   background-color: #005bb5;
 }
 
-/* Hero Banner */
+/* ============================
+   Slideshow Hero Section
+============================ */
 
-.hero-banner {
+.slideshow-container {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #0073e6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5%;
-  box-sizing: border-box;
   overflow: hidden;
+  z-index: 0;
 }
 
-.hero-layout {
+/* Slide image */
+.slide-img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Each slide */
+.mySlide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  animation: fadeEffect 1s ease-in-out;
+}
+
+/* Fade animation */
+@keyframes fadeEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Text overlay box */
+.slide-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.slide-overlay h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #003366;
+  font-weight: 700;
+}
+
+.slide-overlay p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Button container */
+.hero-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  max-width: 100%;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Button base styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Primary button */
+.btn.primary {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+}
+
+.btn.primary:hover {
+  background-color: #005bb5;
+}
+
+/* WhatsApp button */
+.btn.whatsapp-btn {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background-color: #29a71a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.btn.whatsapp-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Dot navigation */
+.dot-container {
+  position: absolute;
+  bottom: 20px;
   width: 100%;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.side-img {
-  width: 300px;
-  max-width: 20vw;
-  height: auto;
-  flex-shrink: 0;
-}
-
-.hero-box {
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
-  padding: 40px 30px;
   text-align: center;
-  color: #333;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+  z-index: 10;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+}
+
+.active-dot {
+  background-color: #0073e6;
 }
 
 /* About Us Section */

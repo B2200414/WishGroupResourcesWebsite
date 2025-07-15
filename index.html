@@ -86,22 +86,48 @@
     </a>
 
     <section id="hero" class="hero-banner">
-      <div class="hero-layout">
-        <img src="images/left.gif" alt="Left Animation" class="side-img" />
+      <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="mySlide fade">
+          <img src="images/banking.jpeg" class="slide-img" />
+        </div>
 
-        <div class="hero-box">
-          <h1>Your One-Stop Financial Solution Partner</h1>
-          <p>
-            From insurance to wealth planning, We empower your financial future
-            with expert solutions.
+        <!-- Slide 2 -->
+        <div class="mySlide fade">
+          <img src="images/office.jpg" class="slide-img" />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="mySlide fade">
+          <img src="images/estate.jpeg" class="slide-img" />
+        </div>
+
+        <!-- Text Overlay -->
+        <div class="slide-overlay">
+          <h1 data-i18n="hero.title">Your One-Stop Financial Partner</h1>
+          <p data-i18n="hero.subtitle">
+            All-in-one solution for growth and protection under one roof
           </p>
           <div class="hero-buttons">
-            <a href="#join" class="btn primary">Join Us</a>
-            <a href="#services" class="btn secondary">Learn More</a>
+            <a href="#services" class="btn primary" data-i18n="hero.getStarted"
+              >Get Started</a
+            >
+            <a
+              href="https://wa.me/yourwhatsapplink"
+              target="_blank"
+              class="btn whatsapp-btn"
+            >
+              <img src="images/whatsapp.png" alt="WhatsApp" />
+            </a>
           </div>
         </div>
 
-        <img src="images/right.gif" alt="Right Animation" class="side-img" />
+        <!-- Dots -->
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
       </div>
     </section>
 
@@ -111,11 +137,10 @@
         <div class="about-intro">
           <h2>About Us</h2>
           <p>
-            Established in 2013, <strong>Wish Group Resources</strong> brings
-            over 20 years of financial management experience. We have provided
-            one‑stop financial solutions — covering banking, risk management,
-            legal and tax advisory, investment, and estate planning — to
-            thousands of clients.
+            Founded in 2013, <strong>Wish Group Resources</strong> combines over
+            20 years of expertise and has helped thousands of clients invest
+            with confidence, protect their wealth, and pass it on smoothly — all
+            with one trusted partner.
           </p>
         </div>
 
@@ -252,12 +277,12 @@
             class="card-image"
             style="background-image: url('images/legal.png')"
           >
-            <h3>Legal Advisory</h3>
+            <h3>Legal Advisory(via trusted partners)</h3>
             <button class="toggle-btn">&#9660;</button>
           </div>
           <div class="card-content">
             <ul>
-              <li>Legal documentation</li>
+              <li>Legal documentation support</li>
               <li>Contract review</li>
               <li>Will writing</li>
             </ul>
@@ -269,14 +294,14 @@
             class="card-image"
             style="background-image: url('images/tax.jpg')"
           >
-            <h3>Tax Advisory</h3>
+            <h3>Tax Planning</h3>
             <button class="toggle-btn">&#9660;</button>
           </div>
           <div class="card-content">
             <ul>
-              <li>Income tax planning</li>
+              <li>Personal tax planning</li>
               <li>Business tax consultation</li>
-              <li>Tax saving strategies</li>
+              <li>Tax optimization</li>
             </ul>
           </div>
         </div>
@@ -286,7 +311,7 @@
             class="card-image"
             style="background-image: url('images/investment.jpg')"
           >
-            <h3>Investment</h3>
+            <h3>Investment Planning</h3>
             <button class="toggle-btn">&#9660;</button>
           </div>
           <div class="card-content">
@@ -308,7 +333,7 @@
           </div>
           <div class="card-content">
             <ul>
-              <li>Will & trust setup</li>
+              <li>Will planning & trust setup</li>
               <li>Asset distribution</li>
               <li>Inheritance protection</li>
             </ul>
