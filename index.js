@@ -311,26 +311,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== Service Card Expand ==========
-    const toggleButtons = document.querySelectorAll(".toggle-btn");
+    const serviceCards = document.querySelectorAll(".service-card");
 
-    toggleButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const card = btn.closest(".service-card");
-            const content = card.querySelector(".card-content");
+    serviceCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+        // Avoid toggling when clicking on links or interactive content inside
+        if (e.target.closest("a, button, input, textarea, select")) return;
 
-            const isOpen = content.classList.contains("open");
+        const content = card.querySelector(".card-content");
+        const toggleBtn = card.querySelector(".toggle-btn");
+        const isOpen = content.classList.contains("open");
 
-            if (isOpen) {
-                content.classList.remove("open");
-                btn.classList.remove("rotate");
-                content.style.display = "none"; // Hide content
-            } else {
-                content.classList.add("open");
-                btn.classList.add("rotate");
-                content.style.display = "block"; // Show content
-            }
-        });
+        if (isOpen) {
+        content.classList.remove("open");
+        toggleBtn.classList.remove("rotate");
+        content.style.display = "none";
+        } else {
+        content.classList.add("open");
+        toggleBtn.classList.add("rotate");
+        content.style.display = "block";
+        }
     });
+    });
+
 
     // ========== CV Upload Functionality ==========
     const fileInput = document.getElementById("cv");
