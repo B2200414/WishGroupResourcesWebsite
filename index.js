@@ -1,4 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    const hamburgerToggle = document.querySelector(".hamburger");
+    const nav = document.querySelector(".nav");
+
+    if (hamburgerToggle && nav) {
+    hamburgerToggle.addEventListener("click", () => {
+        nav.classList.toggle("show");
+    });
+    }
+
+    const langMenuItems = document.querySelectorAll(".lang-menu li");
+    const currentLangText = document.getElementById("current-lang-text");
+
+    // Default language
+    let currentLang = localStorage.getItem("lang") || "en";
+    loadLanguage(currentLang);
+
+    // Click handler for language switch
+    langMenuItems.forEach((item) => {
+        item.addEventListener("click", function () {
+        const selectedLang = this.getAttribute("data-lang");
+        currentLang = selectedLang;
+        localStorage.setItem("lang", currentLang);
+        loadLanguage(currentLang);
+        currentLangText.textContent = currentLang.toUpperCase();
+        });
+    });
+
+    // Load and apply language file
+    function loadLanguage(lang) {
+        fetch(`lang/${lang}.json`)
+        .then((res) => res.json())
+        .then((translations) => {
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const translated = getNestedTranslation(translations, key);
+            if (translated) el.innerHTML = translated;
+            });
+        })
+        .catch((err) => console.error("Language load error:", err));
+    }
+
+    // Handle nested keys like "hero.title"
+    function getNestedTranslation(obj, key) {
+        return key.split(".").reduce((o, i) => (o ? o[i] : null), obj);
+    }
+
     let lastScrollTop = 0;
     const header = document.querySelector('.header');
     const backToTopButton = document.getElementById('backToTop');
@@ -106,6 +153,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Manually set active class immediately on click
                 navLinks.forEach(nav => nav.classList.remove('active'));
                 this.classList.add('active');
+
+                 // ✅ Hide mobile menu after click
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove("show");
+                }
             }
         });
     });
@@ -156,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== Language Dropdown ==========
     const langToggle = document.querySelector(".lang-toggle");
     const langMenu = document.querySelector(".lang-menu");
-    const currentLangText = document.getElementById("current-lang-text");
     const langDropdown = document.querySelector(".lang-dropdown"); // Added for click outside detection
 
     if (langToggle && langMenu && currentLangText && langDropdown) {
@@ -468,5 +519,8 @@ if (contactForm) {
       otherInput.value = "";
     }
   });
+
+
+  
 
 });

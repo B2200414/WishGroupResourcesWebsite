@@ -16,7 +16,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/*  Header */
+/* ========== Header ========== */
 .header {
   position: fixed;
   top: 0;
@@ -30,24 +30,35 @@ html {
 /* Layout */
 .header .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px 5%;
+  position: relative;
 }
 
 /* Logo */
+.logo {
+  flex: 0 0 auto;
+}
 .logo img {
   height: 55px;
 }
 
-/* Nav Links */
+/* ===== Navigation ===== */
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* Base Navigation Link */
 .nav a {
   text-decoration: none;
   color: #333;
@@ -57,24 +68,22 @@ html {
   transition: all 0.3s ease;
 }
 
-/* Hover and Active Style - Light Blue Background with Blue Text */
 .nav a:hover,
 .nav a.active,
 .nav-link.active {
   background-color: #e0f0ff;
   color: #0073e6;
   font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.3s ease;
 }
 
-/* Container */
+/* ===== Language Dropdown ===== */
 .lang-dropdown {
-  position: relative;
+  flex: 0 0 auto;
+  margin-left: auto;
   font-family: "Roboto", sans-serif;
+  position: relative;
 }
 
-/* Language toggle button */
 .lang-toggle {
   background: none;
   border: none;
@@ -82,45 +91,39 @@ html {
   cursor: pointer;
 }
 
-/* Visible button box (icon + text + arrow) */
 .lang-box {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
   background-color: #fff;
-  border: none; /* No border */
-  outline: 1px solid #ccc; /* Outline instead */
+  outline: 1px solid #ccc;
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .lang-box:hover {
-  outline-color: #999999; /* Medium gray outline */
-  background-color: #eaeaea; /* Soft light gray background */
+  outline-color: #999999;
+  background-color: #eaeaea;
 }
 
-/* Language icon inside button */
 .lang-box img {
   width: 20px;
   height: 20px;
 }
 
-/* Language text */
 .lang-box span {
   font-size: 14px;
   font-weight: 500;
   color: #333;
 }
 
-/* Dropdown arrow icon */
 .lang-box i {
   font-size: 12px;
   color: #333;
 }
 
-/* Dropdown menu */
 .lang-menu {
   position: absolute;
   top: 110%;
@@ -136,7 +139,6 @@ html {
   z-index: 1000;
 }
 
-/* Dropdown items */
 .lang-menu li {
   padding: 8px 15px;
   cursor: pointer;
@@ -147,6 +149,117 @@ html {
 
 .lang-menu li:hover {
   background-color: #f0f0f0;
+}
+
+/* ===== Hamburger Button (Mobile Only) ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger span {
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ===== Mobile View ===== */
+@media (max-width: 768px) {
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .lang-dropdown {
+    order: 2;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-left: 0;
+  }
+
+  /* Language box simplified (no icon) */
+  .lang-box img {
+    display: none;
+  }
+
+  .lang-box {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+
+  .lang-box span {
+    font-size: 14px;
+  }
+
+  .lang-menu {
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+
+  .hamburger {
+    display: flex;
+    order: 3;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  .nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav a {
+    padding: 12px 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .nav a:hover,
+  .nav a.active,
+  .nav-link.active {
+    background-color: #e0f0ff;
+    color: #0073e6;
+    font-weight: 600;
+  }
 }
 
 /* Back to Top Button */
@@ -178,6 +291,7 @@ html {
    Slideshow Hero Section
 ============================ */
 
+/* Slideshow container */
 .slideshow-container {
   position: relative;
   width: 100%;
@@ -202,6 +316,24 @@ html {
   height: 100%;
   z-index: 1;
   animation: fadeEffect 1s ease-in-out;
+}
+
+/* Default: Show desktop version, hide mobile */
+.desktop-img {
+  display: block;
+}
+.mobile-img {
+  display: none;
+}
+
+/* On mobile: Show mobile version, hide desktop */
+@media (max-width: 768px) {
+  .desktop-img {
+    display: none !important;
+  }
+  .mobile-img {
+    display: block !important;
+  }
 }
 
 /* Fade animation */
@@ -249,6 +381,7 @@ html {
   justify-content: center;
   gap: 20px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 /* Button base styles */
@@ -287,13 +420,13 @@ html {
   align-items: center;
   justify-content: center;
   color: #63e6be;
-  font-size: 38px; /* Adjust icon size */
+  font-size: 38px;
   transition: transform 0.2s ease;
   cursor: pointer;
 }
 
 .btn.whatsapp-btn:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1);
 }
 
 .btn.whatsapp-btn i {
@@ -324,6 +457,59 @@ html {
   background-color: #0073e6;
 }
 
+/* ===== Responsive Styling for Mobile ===== */
+@media (max-width: 768px) {
+  .slide-overlay {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .slide-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .slide-overlay p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .desktop-img {
+    display: none !important;
+  }
+  .mobile-img {
+    display: block !important;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .btn.whatsapp-btn {
+    font-size: 30px;
+  }
+
+  .dot-container {
+    bottom: 12px;
+  }
+
+  .slide-img {
+    object-position: center;
+  }
+}
+
+/* Universal Box Sizing */
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Ensures all elements inherit border-box */
+  margin: 0; /* Reset default margins */
+  padding: 0; /* Reset default paddings */
+}
+
 /* About Us Section */
 .about-section {
   padding: 100px 5% 80px;
@@ -331,10 +517,15 @@ html {
   font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* Container styling */
-.about-section .container {
+/* Container styling - critical for desktop and mobile consistency */
+/* This container should typically be the element that has horizontal padding */
+.about-section .container,
+.story-section .container {
+  /* Applying to both for consistency */
   max-width: 1100px;
   margin: 0 auto;
+  /* On desktop, 5% padding is applied to the section, so containers fill that */
+  /* For mobile, we'll override this in the media query */
 }
 
 /* Introduction */
@@ -374,13 +565,13 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  padding: 50px;
+  padding: 50px; /* Padding around the grid on desktop */
 }
 
 .card {
   background: #fff;
   border-radius: 12px;
-  padding: 30px;
+  padding: 30px; /* Padding inside each card */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -436,7 +627,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   width: 280px;
-  height: 400px; /* fixed height for equal layout */
+  height: 400px;
   background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
@@ -461,7 +652,7 @@ html {
   font-size: 1.1rem;
   color: #333;
   min-height: 50px;
-  flex-grow: 1; /* pushes button down */
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -504,21 +695,21 @@ html {
 
 .story-popup-content {
   background: #fff;
-  width: 95%;
-  max-width: 1300px; /* was 1000px */
-  height: 90vh; /* taller height */
+  width: 95%; /* Overall width of the content box within the popup */
+  max-width: 1300px;
+  height: 90vh;
   border-radius: 14px;
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-  position: relative;
+  /* position: relative; Removed this as the close button is now relative to .story-popup */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* Adjust video and text area for more balance */
+/* Video area */
 .video-area {
   flex: 1.2;
-  min-width: 0;
+  min-width: 0; /* Allows content to shrink */
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -527,7 +718,7 @@ html {
 }
 
 .video-area video {
-  width: 100%;
+  width: 100%; /* Video takes full width of its padded parent */
   height: auto;
   border-radius: 10px;
 }
@@ -547,10 +738,10 @@ html {
   border: 1px solid #ccc;
 }
 
-/* Text side (more space) */
+/* Text side */
 .story-text {
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* Allows content to shrink */
   padding: 30px 40px;
   overflow-y: auto;
   max-height: 90vh;
@@ -568,23 +759,167 @@ html {
   color: #333;
 }
 
-/* Close Button - larger and clearer */
+/* Close Button - NOW POSITIONED RELATIVE TO .story-popup */
 .close-btn {
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 20px;
   font-size: 32px;
   font-weight: bold;
-  background: none;
+  background: #fff;
   border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #333;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.2s;
+  z-index: 1001;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn:hover {
   color: #ff5c5c;
+  background-color: #f0f0f0;
+  transform: scale(1.1);
 }
+
+/* ===================================== */
+/* ========= Mobile View Fixes ========= */
+/* ===================================== */
+@media (max-width: 768px) {
+  /* Ensure a base padding for the body, if not already set, to prevent content touching edges */
+  body {
+    padding: 0; /* Ensure no default body padding that could conflict */
+    margin: 0; /* Ensure no default body margin that could conflict */
+  }
+
+  /* Main section padding for mobile */
+  .about-section,
+  .story-section {
+    padding: 60px 20px; /* Consistent padding for all main sections */
+    border-radius: 0;
+    width: 100%; /* Ensure sections take full viewport width initially */
+  }
+
+  /* Containers within sections */
+  /* We want content to be inside the section's 20px padding.
+     If a container has a max-width, it should still respect that,
+     but align within the parent's padding. */
+  .about-section .container,
+  .story-section .container {
+    max-width: 100%; /* Allows it to expand to parent width, respecting parent padding */
+    padding: 0; /* Remove any padding from the container itself, let section handle it */
+  }
+
+  /* About Intro */
+  .about-intro {
+    margin-bottom: 40px;
+  }
+  .about-intro h2 {
+    font-size: 2rem;
+  }
+  .about-intro p {
+    font-size: 1rem;
+    padding: 0; /* Remove explicit padding, it's contained by .container or .about-section */
+    max-width: 100%;
+  }
+
+  /* About Cards - stack vertically */
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0; /* Remove padding here, section padding is sufficient */
+  }
+
+  .card {
+    padding: 25px; /* Padding inside each card content */
+  }
+
+  /* Story Cards - center layout */
+  .story-cards {
+    flex-direction: column;
+    align-items: center; /* Centers cards horizontally */
+    gap: 20px;
+  }
+
+  .story-card {
+    width: 100%; /* Make story cards take full width *within the section's padding* */
+    max-width: 350px; /* Keep a max-width for aesthetic on larger phones */
+    height: auto;
+    padding-bottom: 15px;
+  }
+
+  .story-card h4 {
+    padding: 10px;
+    min-height: unset;
+  }
+
+  /* Popup: stack video and text vertically */
+  .story-popup-content {
+    flex-direction: column;
+    height: auto;
+    max-height: 95vh;
+    width: calc(
+      100% - 40px
+    ); /* Calculate width: 100% of viewport minus 20px on each side */
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 0; /* No internal padding on the content wrapper, children handle it */
+    margin: 20px; /* Add margin to the popup content itself to ensure space from edges */
+  }
+
+  /* Video Area & Text Area - apply padding inside */
+  .video-area {
+    padding: 15px; /* Uniform padding on all sides for content within video area */
+    width: 100%; /* Ensures it fills its parent's content box */
+    flex: none;
+  }
+
+  .video-area video {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .video-speed {
+    text-align: center;
+    margin-top: 10px;
+    padding: 0; /* No extra padding here, video-area handles it */
+  }
+
+  .story-text {
+    padding: 15px; /* Uniform padding on all sides for content within text area */
+    width: 100%; /* Ensures it fills its parent's content box */
+    flex: none;
+  }
+
+  .story-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .story-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  /* Close button: Adjust position for mobile */
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+}
+
 /* services section */
 .services-section {
   padding: 80px 5%;
@@ -1235,16 +1570,15 @@ html {
   }
 }
 
-/* Footer Base Styles */
-.footer {
+/* ===== FOOTER STYLES ===== */
+.site-footer {
   background-color: #f7f9fc;
   color: #333;
   padding: 40px 5% 30px;
   font-family: "Poppins", sans-serif;
-  border-top: 2px solid #e0e0e0; /* Line separator */
+  border-top: 2px solid #e0e0e0;
 }
 
-/* Footer Container */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1254,52 +1588,59 @@ html {
   gap: 40px;
 }
 
-/* Footer Column */
-.footer-column {
-  flex: 1 1 250px;
-  min-width: 250px;
+/* Left column - Info */
+.footer-info {
+  flex: 1 1 300px;
+  min-width: 300px;
 }
 
-.footer-column h4 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  font-weight: 600;
+.footer-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
   color: #0073e6;
 }
 
-/* Text & Links */
-.footer-column p,
-.footer-column a {
+.footer-info p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #333;
+  margin-bottom: 12px;
+}
+
+.footer-info a {
+  color: #0073e6;
   text-decoration: none;
 }
 
-.footer-column a:hover {
+.footer-info a:hover {
   text-decoration: underline;
 }
 
-/* Icon Row (All in one line) */
-.footer-icons {
-  display: flex;
-  gap: 16px;
-  margin-top: 12px;
-  align-items: center;
-  flex-wrap: nowrap; /* Force single line */
+/* Right column - Map */
+.footer-map {
+  flex: 1 1 400px;
+  min-width: 300px;
 }
 
-/* Icon Button Circle */
+/* ===== ICON ROW ===== */
+.footer-icons {
+  display: flex;
+  justify-content: start;
+  gap: 16px;
+  margin-top: 16px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
 .icon-circle {
-  width: 56px;
-  height: 56px;
-  background: #ffffff;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
   padding: 12px;
   cursor: pointer;
 }
@@ -1309,13 +1650,13 @@ html {
 }
 
 .icon-circle img {
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
 }
 
 /* Bottom Row */
 .footer-bottom {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
   font-size: 0.9rem;
   color: #777;
@@ -1323,26 +1664,35 @@ html {
   padding-top: 20px;
 }
 
-/* Responsive (Mobile) */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     gap: 30px;
   }
 
+  .footer-icons {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
   .icon-circle {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     padding: 10px;
   }
 
   .icon-circle img {
-    width: 22px;
-    height: 22px;
+    width: 34px;
+    height: 34px;
   }
 
-  .footer-icons {
-    justify-content: flex-start;
-    flex-wrap: wrap; /* Wrap nicely on mobile */
+  .footer-info h3 {
+    font-size: 1.15rem;
+  }
+
+  .footer-info p {
+    font-size: 0.95rem;
   }
 }
