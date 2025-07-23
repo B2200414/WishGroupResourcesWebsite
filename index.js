@@ -234,6 +234,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+    const scrollArrow = document.querySelector('.scroll-down-btn');
+
+    if (scrollArrow) {
+    scrollArrow.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+        const headerOffset = document.querySelector('.header')?.offsetHeight || 0;
+
+        if (target) {
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const scrollToPosition = targetPosition - headerOffset + 100;
+
+        const start = window.scrollY;
+        const distance = scrollToPosition - start;
+        const duration = 1500;
+        let startTime = null;
+
+        function scrollStep(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3); // ease-out
+
+            window.scrollTo(0, start + distance * ease);
+
+            if (progress < 1) {
+            requestAnimationFrame(scrollStep);
+            }
+        }
+
+        requestAnimationFrame(scrollStep);
+        }
+    });
+    }
+
+
+
     // ========== Story and Intern Video Popup ==========
     const stories = {
         1: {
