@@ -300,12 +300,25 @@ html {
   z-index: 0;
 }
 
+/* Dark mask overlay over entire hero section */
+.slideshow-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 2;
+}
+
 /* Slide image */
 .slide-img {
   width: 100%;
   height: 100vh;
   object-fit: cover;
   display: block;
+  opacity: 0.7; /* darken background image */
 }
 
 /* Each slide */
@@ -346,32 +359,32 @@ html {
   }
 }
 
-/* Text overlay box */
+/* Text overlay box (no background now) */
 .slide-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.85);
   padding: 40px 30px;
   border-radius: 16px;
   text-align: center;
   max-width: 90%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  z-index: 10;
+  z-index: 3;
+  background: transparent;
+  color: #fff;
 }
 
 .slide-overlay h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  color: #003366;
+  color: #fff;
   font-weight: 700;
 }
 
 .slide-overlay p {
   font-size: 1.25rem;
   margin-bottom: 25px;
-  color: #333;
+  color: #fff;
 }
 
 /* Button container */
@@ -436,10 +449,10 @@ html {
 /* Dot navigation */
 .dot-container {
   position: absolute;
-  bottom: 20px;
+  bottom: 90px;
   width: 100%;
   text-align: center;
-  z-index: 10;
+  z-index: 3;
 }
 
 .dot {
@@ -455,6 +468,47 @@ html {
 
 .active-dot {
   background-color: #0073e6;
+}
+
+/* Scroll down arrow (style #5) */
+.scroll-down-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  transform: translateX(-50%);
+  text-decoration: none;
+  padding-top: 70px;
+}
+
+.scroll-down-btn span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: rotate(-45deg);
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+
+/* Arrow animation */
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
 }
 
 /* ===== Responsive Styling for Mobile ===== */
@@ -473,13 +527,6 @@ html {
     margin-bottom: 15px;
   }
 
-  .desktop-img {
-    display: none !important;
-  }
-  .mobile-img {
-    display: block !important;
-  }
-
   .btn {
     font-size: 14px;
     padding: 10px 16px;
@@ -490,7 +537,11 @@ html {
   }
 
   .dot-container {
-    bottom: 12px;
+    bottom: 60px;
+  }
+
+  .scroll-down-btn {
+    bottom: 8px;
   }
 
   .slide-img {

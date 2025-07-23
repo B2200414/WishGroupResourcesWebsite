@@ -484,31 +484,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // ========== Contact Form Submission ==========
-const contactForm = document.getElementById("contactForm");
+  // ========== Contact Form Submission ==========
+  const contactForm = document.getElementById("contactForm");
 
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const formData = new FormData(contactForm);
+      const formData = new FormData(contactForm);
 
-    fetch("submit_contact.php", {
-      method: "POST",
-      body: formData
-    })
-      .then((response) => response.text())
-      .then((result) => {
-        alert(result);
-        contactForm.reset();
-        document.getElementById("otherCategoryGroup").style.display = "none";
+      fetch("submit_contact.php", {
+        method: "POST",
+        body: formData
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Something went wrong. Please try again.");
-      });
-  });
-}
+        .then((response) => response.text())
+        .then((result) => {
+          alert(result);
+          contactForm.reset();
+          document.getElementById("otherCategoryInput").style.display = "none";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Something went wrong. Please try again.");
+        });
+    });
+  }
 
 
   const categorySelect = document.getElementById("category");
